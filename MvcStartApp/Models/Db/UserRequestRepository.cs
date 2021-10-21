@@ -8,9 +8,9 @@ namespace MvcStartApp.Models.Db
 {
     public class UserRequestRepository : IUserRequestRepository
     {
-        private readonly UserRequestContext _context;
+        private readonly BlogContext _context;
 
-        public UserRequestRepository(UserRequestContext context)
+        public UserRequestRepository(BlogContext context)
         {
             _context = context;
         }

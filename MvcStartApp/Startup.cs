@@ -26,15 +26,13 @@ namespace MvcStartApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // регистрация сервиса репозитория для взаимодействия с базой данных
+            services.AddSingleton<IBlogRepository, BlogRepository>();
             services.AddSingleton<IUserRequestRepository, UserRequestRepository>();
 
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<BlogContext>(options => options.UseSqlServer(connection));
-            services.AddDbContext<UserRequestContext>(options => options.UseSqlServer(connection), ServiceLifetime.Singleton);
-
-            // регистрация сервиса репозитория для взаимодействия с базой данных
-            services.AddTransient<IBlogRepository, BlogRepository>();
-
+            services.AddDbContext<BlogContext>(options => options.UseSqlServer(connection), ServiceLifetime.Singleton);
+           
             services.AddControllersWithViews();
         }
 
