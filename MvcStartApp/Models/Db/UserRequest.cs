@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MvcStartApp.Models.Db
 {
     [Table("Requests")]
-    public class Request
+    public class UserRequest
     {
         public Guid Id { get; set; }
         public DateTime Date { get; set; }
